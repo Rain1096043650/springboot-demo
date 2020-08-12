@@ -1,0 +1,30 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdba:mysql:///easy
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: false
+        allow: 127.0.0.1
+        login-username: druid
+        login-password: druid
+
+      #监控统计的stat,以及防sql注入的wall
+      filters: stat,wall
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+
+
